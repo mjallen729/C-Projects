@@ -1,0 +1,5 @@
+This project was not as difficult. Since I had a very extensive understanding of threads (I did lots of research beforehand), I was able to complete this without many problems that needed debugging. I also decided to add some things like delays in between incoming calls (so that the console didn't get bombed with a bunch of them at once) and a small delay in between ringing and the operator answering for a more realistic effect. These can all, of course, be removed and can be found on lines 44 and 78.
+
+The phonecall() function works by assigning each caller a caller ID (through a binary semaphore). It then enters a loop that checks if there is an open connection available. If there is, it increments connected and breaks out of the loop. This is also done in a binary semaphore. If there is no open connection, it unlocks the semaphore and sleeps for 3 seconds. It then scans again if there is an open line. 
+
+The rest of the order process is done inside a counting semaphore of 8 capacity. It is pretty straightforward and the whole file is filled with comments documenting the code.
